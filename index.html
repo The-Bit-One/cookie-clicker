@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<script>
+
+
+  var airdropPlanes = 0;
+  var cookiesPerSecond = 0;
+  var iterationVar3 = 0;
+  var iterationVar2 = 0;
+  var iterationVar1 = 0;
+  var minerPrice = 15;
+  var machinePrice = 100;
+  var minerMachine;
+  var cookieMachines = 0;
+  var myVar;
+  var machineChipsPerSecond = 5;
+  var autoclickerChipsPerSecond = 0.5
+  var clicks = 0;
+  var miners = 0;
+  var airdropPrice = 2000;
+  var airdroppper;
+  var clicksPerCookie = 1;
+  var dropPlaneChipsPerSecond = 25;
+
+function everySecond() {
+    if (clicks > 5000) {
+$("#cookieUpgradePrice").show();
+}
+
+else {
+
+      $("#cookieUpgradePrice").hide();
+}
+
+}
+
+var doneTheStuff;
+function whatever() {
+  if (!doneTheStuff) {
+    doneTheStuff = true;
+    
+setTimeout(everySecond, 100);
+  }
+}
+
+window.onload = whatever;
+
+function addClick() {
+ 
+    clicks += clicksPerCookie;
+    document.getElementById("chips").innerHTML = clicks;
+    
+}
+   
+ function addDude() {
+   if (clicks > minerPrice-1) {
+   clicks += -minerPrice
+   miners += 1
+   mine()
+   iterationVar2 += 1 
+   minerPrice = Math.pow(1.8, iterationVar2) + 15;
+   minerPrice = (Math.round(minerPrice));
+   cookiesPerSecond += autoclickerChipsPerSecond;
+                 
+   }
+   document.getElementById("cookiesPerSecond").innerHTML 
+   = cookiesPerSecond;
+  document.getElementById("miner").innerHTML = miners;
+  document.getElementById("chips").innerHTML = clicks;
+  document.getElementById("addAnAutoclicker").innerHTML = minerPrice;
+   }
+   
+  function cookieMachine(){
+  if (clicks > machinePrice-1) {
+   clicks += -machinePrice;
+   cookieMachines += 1;
+   iterationVar1 += 1 ;
+   cookiesPerSecond += machineChipsPerSecond ;
+   machinePrice = Math.pow(1.8, iterationVar1) + 100;
+
+  machinePrice = (Math.round(machinePrice));
+   cookieMine()
+}
+  document.getElementById("cookiesPerSecond").innerHTML = cookiesPerSecond;
+  document.getElementById("machines").innerHTML = cookieMachines;
+  document.getElementById("chips").innerHTML = clicks;
+  document.getElementById("machinePrice").innerHTML = machinePrice ;
+
+  }
+
+  function airdrop() {
+
+if (clicks > airdropPrice - 1 ) {
+clicks += -airdropPrice
+airdropPlanes += 1
+iterationVar3 += 1
+cookiesPerSecond += dropPlaneChipsPerSecond
+airdropPrice = Math.pow(1.8, iterationVar3) + 2000;
+airdropPrice = (Math.round(airdropPrice));
+   cookieMine()
+airdropBringer()
+}
+document.getElementById("cookiesPerSecond").innerHTML = cookiesPerSecond;
+document.getElementById("chips").innerHTML = clicks;document.getElementById("airdropPlanes").innerHTML = airdropPlanes;
+document.getElementById("airdropPrice").innerHTML = airdropPrice;
+  }
+
+function airdropBringer() {
+
+ airdropper = setInterval(addClick, 40);
+}
+
+function cookieMine(){
+ minerMachine = setInterval(addClick, 200);
+  }
+  
+function mine() {
+ myVar = setInterval(addClick, 2000);
+}
+
+function popupTrigger() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+  window.setTimeout(hidePopup,300);
+}
+
+function hidePopup(){
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+function sugarCookie () {
+clicks +- 5000  
+clicksPerCookie += .5
+document.getElementById("clicksPerCookie").innerHTML = clicksPerCookie;
+machineChipsPerSecond = machineChipsPerSecond * 1.5
+autoclickerChipsPerSecond = autoclickerChipsPerSecond * 1.5
+dropPlaneChipsPerSecond = dropPlaneChipsPerSecond * 1.5
+
+}
+
+</script>
+
+<link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+
+<header>
+<h3>Click the Cookie to Get Chips</h3>
+
+</header>
+
+<section>
+  <nav>
+    <ul>
+
+<div class="popup" onclick="popupTrigger()">
+<span class="popuptext" id="myPopup"> + <span id="clicksPerCookie">    1 </span> Chips</span>   
+<img src="cookie.png" onclick="addClick()" id="theCookie">
+</div>
+<br>
+<span id="cookiesPerSecond"> 0 </span> <span class="cpsData"> chips per second </span>
+    </ul>
+  </nav>
+  
+  <article>
+   <div id="dataArea">
+<br>
+<span id="chips">0</span> <span class="dataLabel"> chips </span> <br>
+<span id="miner">0</span> <span class="dataLabel"> autoclickers </span><br>
+<span id="machines">0</span> <span class="dataLabel"> cookie machines </span><br>
+<span id="airdropPlanes"> 0 </span> <span class="dataLabel"> drop planes </span> <br>
+
+
+<article id="buyButtons">
+
+<img class="buttonId"src="cursor.jpg"> <button onclick="addDude()"> Add An Autoclicker For <span id="addAnAutoclicker"> 15 </span> <span> chips </span></button>  <br>
+<img class="buttonId" src="machine.jpg"> <button onclick="cookieMachine()"> Add a Cookie Machine For <span id="machinePrice">100 </span> <span> 
+chips</span></button> <br>
+
+<img class="buttonId" src="airdrop.jpg"> <button onclick="airdrop()"> Add A Drop Plane For <span id="airdropPrice" > 2000 </span> <span> chips </span> </button> <br>
+  
+</article>
+<div>
+
+</article>
+</section>
+<footer>
+
+<h1>Upgrades </h1>
+<p> Cookie Upgrade Unlocks When You Have Reached 5000 Chips</p>
+<div onclick="sugarCookie()" id="cookieUpgradePrice">
+<div onclick="document.getElementById('theCookie').src='sugarcookie.png'"> 
+<button onclick="style.display = 'none'">Upgrade To Sugar Cookie For 5000 Chips</button>
+</div>
+</div>
+
+
+</footer>
+
+
+</body>
+</html
