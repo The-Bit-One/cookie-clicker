@@ -27,9 +27,13 @@ font-family: 'Luckiest Guy', cursive;
 
 .dataLabel {
 font-size: 20px;
+}
 
+.icon {
+height: 20px;
 
 }
+
 
 #buyButtons {
 
@@ -39,7 +43,7 @@ text-align: left;
 
 .cpsData, #cookiesPerSecond {
 font-family: 'Luckiest Guy', cursive;
-font-size: 30px;
+font-size: 20px;
 
 }
 
@@ -170,4 +174,9 @@ height: 40px;
 #theCookie {
 
 height: 300px;  
+}
+
+button {
+margin: 5px;
+width: 390px;
 }
